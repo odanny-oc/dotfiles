@@ -18,6 +18,7 @@
         "pulseaudio",
         "custom/media",
         "cpu",
+        "custom/rotate",
     ],
     "modules-center":[
     "group/pill#center"],
@@ -108,6 +109,14 @@
             "deactivated": ""
         }
     },
+
+    "custom/rotate": {
+	"format": "",
+	// "exec": "swaync-client -swb",
+	"on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
+	"escape": true
+	   },
+
     "custom/notification": {
 	"tooltip": false,
 	"format": "{icon}",
@@ -120,7 +129,7 @@
 		"inhibited-none": "",
 		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
 		"dnd-inhibited-none": ""
-	},
+    },
 	"return-type": "json",
 	"exec-if": "which swaync-client",
 	"exec": "swaync-client -swb",
@@ -203,8 +212,8 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": " {volume}%",
+        "format-bluetooth-muted": "󰝟  {icon}",
+        "format-muted": "󰝟  {volume}%",
         // "format-source": "{volume}% ",
         // "format-source-muted": "",
         "format-icons": {

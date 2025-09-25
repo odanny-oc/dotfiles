@@ -11,13 +11,10 @@
     "spacing": 5, // Gaps between modules (4px)
     // Choose the  order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
         "custom/power",
         "backlight",
         "pulseaudio",
-        "custom/media",
+        "custom/rotate"
     ],
     "modules-center":[
     "group/pill#center"],
@@ -200,8 +197,8 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": " {volume}%",
+        "format-bluetooth-muted": "󰝟  {icon}",
+        "format-muted": "󰝟 {volume}%",
         // "format-source": "{volume}% ",
         // "format-source-muted": "",
         "format-icons": {
@@ -215,6 +212,12 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/rotate": {
+	"format": "",
+	// "exec": "swaync-client -swb",
+	"on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
+	"escape": true
+	   },
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",

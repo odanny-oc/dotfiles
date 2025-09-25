@@ -11,7 +11,7 @@
 * {
 	border: none;
 	border-radius: 0;
-	font-family: JetBrains Mono;
+	font-family: JetBrainsMono Nerd Font;
 	font-size: 14px;
 	min-height: 24px;
 }
@@ -138,10 +138,22 @@ window#waybar.PCSX2 #window {
 	background: @color9;
 }
 
+#custom-rotate {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 20px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
 #custom-power {
 	margin-top: 8px;
 	margin-left: 8px;
-	padding-left: 25px;
+	padding-left: 20px;
 	padding-right: 16px;
 	margin-bottom: 0;
 	border-radius: 26px;
