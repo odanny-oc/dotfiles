@@ -4,9 +4,13 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use { "nvim-lua/plenary.nvim" }
+    use { "ThePrimeagen/vim-be-good" }
+
+    use "elentok/encrypt.nvim"
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
@@ -25,7 +29,6 @@ return require('packer').startup(function(use)
     -- requires = { {"nvim-lua/plenary.nvim"} }
     -- }
     use { 'ThePrimeagen/harpoon' }
-    use { 'ThePrimeagen/vim-be-good' }
     use { '/mbbill/undotree' }
 
     use { 'tpope/vim-fugitive' }
@@ -76,6 +79,7 @@ return require('packer').startup(function(use)
     use { 'tpope/vim-surround' }
     use { 'nvimtools/none-ls.nvim' }
     use { 'kdheepak/lazygit.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
     -- use { 'moyiz/git-dev.nvim' }
-    use { 'hat0uma/csvview.nvim' }
+    -- use { 'luk400/vim-jukit' }
 end)

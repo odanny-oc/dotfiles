@@ -72,7 +72,7 @@ ls.add_snippets('tex', {
     \usepackage{{esint}} %for integrals
     \setcounter{{tocdepth}}{{4}} %subsubsections in toc
     \setlength{{\parindent}}{{0pt}} %no indent
-    \usepackage[hidelinks]{{hyperref}}" ,
+    \usepackage[hidelinks]{{hyperref}}
     \usepackage[nameinlink, noabbrev]{{cleveref}} %refs
     \usepackage[nottoc]{{tocbibind}}
     \usepackage{{tikz}} %old figures package
@@ -94,8 +94,7 @@ ls.add_snippets('tex', {
     \usepackage{{lmodern}}
     \usepackage[T1]{{fontenc}}
     \usepackage{{fancyhdr}} % Custom headers and footers
-    \usepackage[a4paper, left=20mm, right=20mm,
-    "top=20mm, bottom=20mm]{{geometry}}
+    \usepackage[a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm]{{geometry}}
     \usepackage{{array}}
     
     \pagestyle{{fancyplain}} % Makes all pages in the document conform to the custom headers and footers
@@ -123,7 +122,7 @@ ls.add_snippets('tex', {
     
     \author{{O. Daniel O'Carroll\\
     \small{{22337259}}\\
-    \small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}
+    \small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}
     \date{{\today}}
     \begin{{document}}
     \maketitle
@@ -439,6 +438,30 @@ s("fig", fmt(
     i(1), i(2), i(3), rep(1)
     }
 )),
+-- Subfigure
+s("subfig", fmt(
+    [[
+    \begin{{figure}}[H] 
+    \begin{{subfigure}}[H]{{{}\linewidth}}
+    \includegraphics[width=\linewidth]{{{}}}
+    \end{{subfigure}}
+    \end{{figure}}
+    %
+    ]],{
+    i(1), i(2)
+    }
+)),
+-- Subfigure add
+s("subfigadd", fmt(
+    [[
+    \begin{{subfigure}}[H]{{{}\linewidth}}
+    \includegraphics[width=\linewidth]{{{}}}
+    \end{{subfigure}}
+    %
+    ]],{
+    i(1), i(2)
+    }
+)),
 -- PNG Figure
 s("figpng", fmt(
     [[
@@ -588,6 +611,29 @@ s("ff", fmt(
     \dfrac{{{}}}{{{}}}
     ]],{
         i(1), i(2)
+    }
+)),
+s("frame", fmt(
+    [[
+    \begin{{frame}}[t]{{{}}}
+    {}
+    \end{{frame}}
+    ]],{
+        i(1), i(2)
+    }
+)),
+s("bf", fmt(
+    [[
+    \textbf{{{}}}
+    ]],{
+        i(1)
+    }
+)),
+s("it", fmt(
+    [[
+    \textit{{{}}}
+    ]],{
+        i(1)
     }
 )),
 })

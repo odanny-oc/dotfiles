@@ -1,7 +1,5 @@
 require("oceanman.lsp.mason")
 require("nvim-dap-virtual-text").setup {}
-local lspconfig = require "lspconfig"
--- vim.lsp.config()
 local def = require "oceanman.lsp.default-lsp"
 
 
