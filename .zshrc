@@ -1,1 +1,1 @@
-.zshrc
+/home/ocean/.zshrc
