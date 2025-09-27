@@ -7,10 +7,10 @@ fi
 
 #
 # sleep 0.02
+eval "$(ssh-agent -s)"
 fastfetch 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 
 # cursor='\[\e[1;m\e[1;33m\][\u : \W] $ \[\e[m\e[m\]'
 # export PS1=$cursor
@@ -18,6 +18,7 @@ fastfetch
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/MultiNest/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/wvkbd/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/cuba/:$LD_LIBRARY_PATH
+export GSK_RENDERER=gl
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -25,7 +26,8 @@ SAVEHIST=10000
 setopt appendhistory
 
 alias rm='rm -i'
-# alias vim='nvim'
+alias ff='fastfetch'
+
 alias v='nvim .'
 alias ls='ls -a --color=auto'
 alias lg='lazygit'

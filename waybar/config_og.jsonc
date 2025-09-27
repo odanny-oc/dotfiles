@@ -19,6 +19,7 @@
         "custom/media",
         "cpu",
         "custom/rotate",
+        "custom/reset",
     ],
     "modules-center":[
     "group/pill#center"],
@@ -112,10 +113,15 @@
 
     "custom/rotate": {
 	"format": "",
-	// "exec": "swaync-client -swb",
 	"on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
 	"escape": true
-	   },
+	},
+
+    "custom/reset": {
+	"format": "󰜷",
+    "on-click": "~/.config/hypr/scripts/reset_screen_waybar.sh",
+	"escape": true
+	},
 
     "custom/notification": {
 	"tooltip": false,
@@ -180,7 +186,7 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "interval" : 5,
@@ -202,9 +208,9 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -240,7 +246,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder

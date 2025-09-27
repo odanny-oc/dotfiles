@@ -15,6 +15,7 @@ export LD_LIBRARY_PATH=/home/danny/wvkbd/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/cuba/:$LD_LIBRARY_PATH
 export GSK_RENDERER=gl
 
+
 alias rm='rm -i'
 # alias vim='nvim'
 alias v='nvim .'

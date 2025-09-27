@@ -1,6 +1,5 @@
 // -*- mode: jsonc -*-
 {
-    "reload_style_on_change":true,
     "layer": "top", // Waybar at top layer
     "mod":"dock",
     "passthrough":false,
@@ -8,13 +7,15 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     "width": 900, // Waybar width
-    "spacing": 5, // Gaps between modules (4px)
-    // Choose the  order of the modules
+    "spacing": 2, // Gaps between modules (4px)
+    "expand": true,
+    // Choose the order of the modules
     "modules-left": [
+        "sway/workspaces",
         "custom/power",
         "backlight",
-        "pulseaudio",
-        "custom/rotate"
+        "custom/rotate",
+        "custom/reset",
     ],
     "modules-center":[
     "group/pill#center"],
@@ -26,9 +27,8 @@
         "hyprland/workspaces",
     ] },
     "modules-right": [
-        "mpd",
         "network",
-        "keyboard-state",
+        "power-profiles-daemon",
         "battery",
         "custom/notification",
         "tray",
@@ -102,6 +102,19 @@
             "deactivated": ""
         }
     },
+
+    "custom/rotate": {
+	"format": "",
+	"on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
+	"escape": true
+	},
+
+    "custom/reset": {
+	"format": "󰜷",
+    "on-click": "~/.config/hypr/scripts/reset_screen_waybar.sh",
+	"escape": true
+	},
+
     "custom/notification": {
 	"tooltip": false,
 	"format": "{icon}",
@@ -114,7 +127,7 @@
 		"inhibited-none": "",
 		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
 		"dnd-inhibited-none": ""
-	},
+    },
 	"return-type": "json",
 	"exec-if": "which swaync-client",
 	"exec": "swaync-client -swb",
@@ -134,7 +147,7 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 1 , 
-        "format": "{:%H:%M %a %d/%m}",
+        "format": "{:%H:%M:%S %a %d/%m}",
         "format-alt": "{:%H:%M:%S %Y-%m-%d}",
     },
     "cpu": {
@@ -165,7 +178,7 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "interval" : 5,
@@ -187,9 +200,9 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -198,7 +211,7 @@
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": "󰝟  {icon}",
-        "format-muted": "󰝟 {volume}%",
+        "format-muted": "󰝟  {volume}%",
         // "format-source": "{volume}% ",
         // "format-source-muted": "",
         "format-icons": {
@@ -212,12 +225,6 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/rotate": {
-	"format": "",
-	// "exec": "swaync-client -swb",
-	"on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
-	"escape": true
-	   },
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
@@ -231,7 +238,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
