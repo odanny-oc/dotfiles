@@ -43,7 +43,8 @@
 # resize-overlay-duration = 4s 200ms
 shell-integration = zsh
 # font-family = "MesloLGS NF"
-font-family = "JetBrainsMono NF"
+# font-family = "JetBrainsMono NF"
+font-family = "Monocraft Nerd Font"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig

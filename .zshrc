@@ -18,7 +18,7 @@ fastfetch
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/MultiNest/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/wvkbd/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/cuba/:$LD_LIBRARY_PATH
-export GSK_RENDERER=gl
+export GSK_RENDERER=ngl
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
