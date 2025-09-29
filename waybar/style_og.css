@@ -64,19 +64,15 @@ window#waybar.PCSX2 #window {
 	margin-left: 12px;
 	margin-bottom: 0;
 	border-radius: 26px;
-	background: @background;
+	background: rgba(0,0,0,0.5);
 	transition: none;
 }
 
 #workspaces button {
 	transition: none;
-	color: #f8f8f2;
+	color: white;
 	background: transparent;
 	font-size: 16px;
-}
-
-#workspaces button.focused {
-	color: @color10;
 }
 
 #workspaces button.active {
@@ -93,7 +89,7 @@ window#waybar.PCSX2 #window {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	color: @color10;
+	color: @color9;
 }
 
 /* #hyprland-window { */
