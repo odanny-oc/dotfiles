@@ -1,0 +1,15 @@
+
+*
+
+!/nvim/
+!/hypr/
+!/waybar/
+!/ghostty/
+!/fastfetch/
+!/.oh-my-zsh/
+!/.zshrc/
+!/.bashrc/
+!/.vimrc/
+!/packages.txt
+!/flatpak_packages.txt
+!/.gitignore
