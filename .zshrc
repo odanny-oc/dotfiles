@@ -6,8 +6,10 @@
 # fi
 #
 #
-# sleep 0.02
 eval "$(ssh-agent -s)"
+
+clear
+
 fastfetch 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

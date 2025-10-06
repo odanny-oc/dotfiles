@@ -149,7 +149,7 @@
         "expand": true,
         "icons": {
           "blueman": "bluetooth",
-          "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+          "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png",
         }
     },
     "clock": {
