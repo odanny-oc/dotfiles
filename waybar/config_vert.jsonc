@@ -6,13 +6,14 @@
     "exclusive":true,
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
-    "width": 900, // Waybar width
+    "width": 850, // Waybar width
     "spacing": 2, // Gaps between modules (4px)
     "expand": true,
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
         "custom/power",
+        "pulseaudio",
         "backlight",
         "custom/rotate",
         "custom/reset",
@@ -217,7 +218,7 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",

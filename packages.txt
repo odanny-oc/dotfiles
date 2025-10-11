@@ -907,7 +907,6 @@ osinfo-db 20250606-1
 ostree 2025.6-1
 otf-font-awesome 7.0.1-1
 p11-kit 0.25.9-1
-p3x-onenote 2025.4.124-1
 pacman 7.0.0.r6.gc685ae6-6
 pacman-contrib 1.13.0-1
 pacman-mirrorlist 20250702-2

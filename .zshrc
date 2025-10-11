@@ -6,9 +6,9 @@
 # fi
 #
 #
-eval "$(ssh-agent -s)"
-
-clear
+# eval "$(ssh-agent -s)"
+#
+# clear
 
 fastfetch 
 # If not running interactively, don't do anything
