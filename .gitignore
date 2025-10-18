@@ -7,9 +7,9 @@
 !/ghostty/
 !/fastfetch/
 !/.oh-my-zsh/
-!/.zshrc/
-!/.bashrc/
-!/.vimrc/
+!/.zshrc
+!/.bashrc
+!/.vimrc
 !/packages.txt
 !/flatpak_packages.txt
 !/.gitignore
