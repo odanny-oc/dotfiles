@@ -6,6 +6,8 @@
 
 #  Plugins 
 # oh-my-zsh plugins are loaded  in ~/.hyde.zshrc file, see the file for more information
+#
+
 
 #  Aliases 
 # Add aliases here
@@ -17,9 +19,6 @@ alias lg='lazygit'
 alias grep='grep --color=auto'
 alias q='exit'
 
-eval "$(ssh-agent -s)"
-
-# export modprobe it87
 #  This is your file 
 # Add your configurations here
 export EDITOR=nvim
@@ -31,8 +30,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
  
 function cds {
-    cd $1 && source $1'.venv/bin/activate' 
+    cd $1 && source $1'/.venv/bin/activate' 
 }
 
+function pdf {
+    zathura $1 & disown
+}
 
 unset -f command_not_found_handler # Uncomment to prevent searching for commands not found in package manager
