@@ -5,22 +5,67 @@
     "passthrough":false,
     "exclusive":true,
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 42, // Waybar height (to be removed for auto height)
     "width": 1920, // Waybar width
     "spacing": 20, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
         "custom/power",
-        "backlight",
-        "pulseaudio",
+        "group/pill-backlight",
+        "group/pill-left",
         "custom/media",
-        "cpu",
-        "custom/rotate",
-        "custom/reset",
+        "group/pill-laptop",
+        "group/pill-rotate",
     ],
+
+    "group/pill-laptop":{ 
+        "orientation": "horizontal",
+        "drawer":{
+            "transition-duration": 500,
+            "transition-left-to-right": true,
+            // "click-to-reveal": true
+        },
+        "modules": [
+        "cpu",
+        "temperature",
+    ] },
+
+    "group/pill-left":{ 
+        "orientation": "horizontal",
+        //     "transition-duration": 50,
+        //     "transition-left-to-right": true,
+        //     "click-to-reveal": true
+        // },
+        "modules": [
+        "pulseaudio",
+        "custom/bluetooth_battery",
+    ] },
+
+    "group/pill-backlight":{ 
+        "orientation": "horizontal",
+        "drawer":{
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+            // "click-to-reveal": true
+        },
+        "modules": [
+        "backlight",
+        "custom/backlight_up",
+        "custom/backlight_down",
+    ] },
+
+    "group/pill-rotate":{ 
+        "orientation": "horizontal",
+        "drawer":{
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+            // "click-to-reveal": true
+        },
+        "modules": [
+        "custom/reset",
+        "custom/rotate",
+    ] },
+
     "modules-center":[
     "group/pill#center"],
 
@@ -31,16 +76,29 @@
         "hyprland/workspaces",
     ] },
     "modules-right": [
-        "mpd",
+        // "mpd",
         "network",
         "power-profiles-daemon",
-        "memory",
         "keyboard-state",
+        "group/pill-memory",
         "sway/language",
         "battery",
         "custom/notification",
         "tray",
     ],
+
+    "group/pill-memory":{ 
+        "orientation": "inherit",
+        "drawer":{
+            "transition-duration": 500,
+            "transition-left-to-right": true,
+            // "click-to-reveal": true
+        },
+        "modules": [
+            "memory",
+            "memory#mem2",
+    ] },
+
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -112,15 +170,27 @@
     },
 
     "custom/rotate": {
-	"format": "",
+	"format": " ",
 	"on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
-	"escape": true
+    "tooltip": false
+	},
+
+    "custom/backlight_up": {
+	"format": "󰜷 ",
+	"on-click": "~/.config/hypr/scripts/brightness_up.sh",
+    "tooltip": false
+	},
+
+    "custom/backlight_down": {
+	"format": "󰜮",
+	"on-click": "~/.config/hypr/scripts/brightness_down.sh",
+    "tooltip": false
 	},
 
     "custom/reset": {
-	"format": "󰜷",
+	"format": "󰜷 ",
     "on-click": "~/.config/hypr/scripts/reset_screen_waybar.sh",
-	"escape": true
+    "tooltip": false
 	},
 
     "custom/notification": {
@@ -158,25 +228,39 @@
         "format-alt": "{:%H:%M:%S %Y-%m-%d}",
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}%  ",
         "tooltip": true
     },
+
     "memory": {
-        "format": "{used}GB   {swapUsed}GB 🗁"
+        "format": "{used}GB  ",
+        "tooltip": false
     },
+
+    "memory#mem2": {
+        "format": "{swapUsed}GB 🗁",
+        "tooltip": false
+    },
+
     "temperature": {
+        "interval": 1,
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""],
+        "tooltip": false,
     },
+
+
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "{percent}% {icon} ",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false,
     },
+
     "battery": {
         "states": {
             // "good": 95,
@@ -232,6 +316,14 @@
         },
         "on-click": "pavucontrol"
     },
+
+    "custom/bluetooth_battery": {
+    "exec": "~/.config/hypr/scripts/bluetooth_battery.sh",
+    "format":" {}%   ",
+    "interval": 10,
+    "tooltip": false,
+    },
+
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",

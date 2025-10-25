@@ -13,13 +13,49 @@
     "modules-left": [
         "sway/workspaces",
         "custom/power",
-        "pulseaudio",
-        "backlight",
-        "custom/rotate",
-        "custom/reset",
+        "group/pill-left",
+        "group/pill-backlight",
+        "group/pill-rotate",
     ],
     "modules-center":[
     "group/pill#center"],
+
+    "group/pill-rotate":{ 
+        "orientation": "horizontal",
+        "drawer":{
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+            // "click-to-reveal": true
+        },
+        "modules": [
+        "custom/reset",
+        "custom/rotate",
+    ] },
+
+    "group/pill-backlight":{ 
+        "orientation": "horizontal",
+        "drawer":{
+            "transition-duration": 300,
+            "transition-left-to-right": true,
+            // "click-to-reveal": true
+        },
+        "modules": [
+        "backlight",
+        "custom/backlight_up",
+        "custom/backlight_down",
+    ] },
+
+    "group/pill-left":{ 
+        "orientation": "horizontal",
+        "drawer":{
+            "transition-duration": 500,
+            "transition-left-to-right": true,
+            // "click-to-reveal": true
+        },
+        "modules": [
+        "pulseaudio",
+        "custom/bluetooth_battery"
+    ] },
 
     "group/pill#center":{ 
         "orientation": "inherit",
@@ -105,15 +141,15 @@
     },
 
     "custom/rotate": {
-	"format": "",
+	"format": " ",
 	"on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
-	"escape": true
+	// "escape": true
 	},
 
     "custom/reset": {
-	"format": "󰜷",
+	"format": "󰜷 ",
     "on-click": "~/.config/hypr/scripts/reset_screen_waybar.sh",
-	"escape": true
+	// "escape": true
 	},
 
     "custom/notification": {
@@ -148,8 +184,8 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 1 , 
-        "format": "{:%H:%M:%S %a %d/%m}",
-        "format-alt": "{:%H:%M:%S %Y-%m-%d}",
+        "format": "{:%H:%M %a %d/%m}",
+        "format-alt": "{:%H:%M %Y-%m-%d}",
     },
     "cpu": {
         "format": "{usage}% ",
@@ -158,6 +194,7 @@
     "memory": {
         "format": "{used}GB   {swapUsed}GB 🗁"
     },
+
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -166,11 +203,26 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
+
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "{percent}% {icon} ",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false,
     },
+
+    "custom/backlight_up": {
+	"format": "󰜷 ",
+	"on-click": "~/.config/hypr/scripts/brightness_up.sh",
+    "tooltip": false
+	},
+
+    "custom/backlight_down": {
+	"format": "󰜮",
+	"on-click": "~/.config/hypr/scripts/brightness_down.sh",
+    "tooltip": false
+	},
+
     "battery": {
         "states": {
             // "good": 95,
@@ -200,18 +252,25 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "({signalStrength}%) ",
+        "format-ethernet": "",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{essid}: {ipaddr}/{cidr}"
     },
+
+    "custom/bluetooth_battery": {
+    "exec": "~/.config/hypr/scripts/bluetooth_battery.sh",
+    "format":" {}%  ",
+    "interval": 10
+    },
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}  {volume}%",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": "󰝟  {icon}",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-bluetooth-muted": "󰝟  {icon} ",
         "format-muted": "󰝟  {volume}%",
         // "format-source": "{volume}% ",
         // "format-source-muted": "",

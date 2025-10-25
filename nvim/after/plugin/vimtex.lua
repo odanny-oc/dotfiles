@@ -27,6 +27,4 @@ vim.g.maplocalleader = ","
 
 vim.g.vimtex_format_enabled = 1
 
-vim.keymap.set("n", "<leader>r", ":w <CR> :VimtexCompile<CR> :VimtexError<CR>", opts)
-
-vim.keymap.set("n", "<C-j>", ":VimtexError<CR> :VimtexCompile <CR>")
+vim.keymap.set("n", "<C-j>", ":VimtexError<CR>:w<CR>")
