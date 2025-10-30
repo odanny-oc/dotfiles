@@ -1,8 +1,0 @@
-Rnote	com.github.flxzt.rnote	0.13.1	stable	system
-Mesa	org.freedesktop.Platform.GL.default	25.2.2	24.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	25.2.2	24.08extra	system
-openh264	org.freedesktop.Platform.openh264	2.5.1	2.5.1	system
-LLVM 19	org.freedesktop.Sdk.Extension.llvm19	19.1.7	24.08	system
-Rust stable	org.freedesktop.Sdk.Extension.rust-stable	1.89.0	24.08	system
-GNOME Application Platform version 48	org.gnome.Platform		48	system
-GNOME Software Development Kit version 48	org.gnome.Sdk		48	system

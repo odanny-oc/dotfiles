@@ -1,5 +1,0 @@
-require("oceanman.set")
-require("oceanman.jukit")
-require('oceanman.packer')
-require("oceanman.remap")
-require("oceanman.lsp")
