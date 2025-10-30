@@ -1,0 +1,252 @@
+/*
+ ********************************************
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ *░░█▀█░█░░░█░█░█▀▀░░░█░█░█░░░▀█▀░█▀▄░█▀█░░*
+ *░░█▀▀░█░░░█░█░▀▀█░░░█░█░█░░░░█░░█▀▄░█▀█░░*
+ *░░▀░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░*
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ ********************************************
+ */
+@import "../../.cache/wal/colors-waybar.css";
+* {
+	border: none;
+	border-radius: 0;
+	font-family: JetBrains Mono;
+	font-size: 14px;
+	min-height: 24px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#custom-notification {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 20px;
+	margin-bottom: 0;
+	border-radius: 30px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+	font-family: "JetBrainsMono Nerd";
+}
+
+#window {
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+	border-radius: 26px;
+	transition: none;
+	/*
+    color: #f8f8f2;
+	background: #282a36;
+    */
+    color: transparent;
+	background: transparent;
+}
+
+window#waybar.termite #window,
+window#waybar.Firefox #window,
+window#waybar.Navigator #window,
+window#waybar.PCSX2 #window {
+    color: @color15;
+	background: @color9;
+}
+
+#workspaces {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	background: @background;
+	transition: none;
+}
+
+#workspaces button {
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 16px;
+}
+
+#workspaces button.focused {
+	color: @color10;
+}
+
+#workspaces button.active {
+    background: @color9;
+    color: @color15;
+	margin-top: 2px;
+	margin-left: 12px;
+	margin-right: 12px;
+	margin-bottom: 0;
+	border-radius: 30px;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: @color10;
+}
+
+/* #hyprland-window { */
+/* 	margin-top: 8px; */
+/* 	margin-left: 8px; */
+/* 	padding-left: 16px; */
+/* 	padding-right: 16px; */
+/* 	margin-bottom: 0; */
+/* 	border-radius: 26px; */
+/* 	transition: none; */
+/* 	color: @color15; */
+/* 	background: @color9; */
+/* } */
+
+#mpd.disconnected,
+#mpd.stopped {
+	color: #f8f8f2;
+	background: @color9;
+}
+
+#network {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#tray {
+	margin-top: 8px;
+	margin-left: 0px;
+	padding-left: 16px;
+	padding-right: 15px;
+	margin-bottom: 0px;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#custom-power {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 25px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#custom-power button {
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 16px;
+}
+
+#custom-power button.focused {
+	color: @color10;
+}
+
+#custom-power button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: @color10;
+}
+
+#pulseaudio {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#battery {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#backlight {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#temperature {
+	margin-top: 8px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#cpu {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#memory {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
+#clock {
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @color15;
+	background: @color9;
+}
+
