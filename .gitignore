@@ -9,14 +9,11 @@
 !/waybar/
 !/ghostty/
 !/fastfetch/
-!/.oh-my-zsh/
 !/nvim/*
 !/hypr/**
-!/hypr/scripts/*
-!/waybar/*
-!/ghostty/*
-!/fastfetch/*
-!/.oh-my-zsh/*
+!/waybar/**
+!/ghostty/**
+!/fastfetch/**
 !/.zshrc
 !/.bashrc
 !/.vimrc
