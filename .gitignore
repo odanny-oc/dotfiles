@@ -1,6 +1,9 @@
 *
 
+!*/
+
 !/nvim/
+!/nvim/**
 !/hypr/
 !/hypr/scripts/
 !/waybar/
@@ -8,7 +11,7 @@
 !/fastfetch/
 !/.oh-my-zsh/
 !/nvim/*
-!/hypr/*
+!/hypr/**
 !/hypr/scripts/*
 !/waybar/*
 !/ghostty/*
