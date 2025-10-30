@@ -64,6 +64,7 @@
         "modules": [
         "custom/reset",
         "custom/rotate",
+        "custom/keyboard",
     ] },
 
     "modules-center":[
@@ -167,6 +168,12 @@
             "activated": "",
             "deactivated": ""
         }
+    },
+
+    "custom/keyboard":{
+	    "on-click": "~/.config/hypr/scripts/wvb_keyboard.sh",
+        "tooltip": false,
+        "format": " ",
     },
 
     "custom/rotate": {

@@ -1,4 +1,3 @@
-
 *
 
 !/nvim/
@@ -7,6 +6,12 @@
 !/ghostty/
 !/fastfetch/
 !/.oh-my-zsh/
+!/nvim/*
+!/hypr/*
+!/waybar/*
+!/ghostty/*
+!/fastfetch/*
+!/.oh-my-zsh/*
 !/.zshrc
 !/.bashrc
 !/.vimrc
