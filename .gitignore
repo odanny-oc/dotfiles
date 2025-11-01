@@ -2,7 +2,10 @@
 
 !*/
 
+!/swaync/**
 !/nvim/
+!/icons/
+!/icons/**
 !/nvim/**
 !/hypr/
 !/hypr/scripts/

@@ -61,6 +61,92 @@ s("beg", fmt(
 ]],{
     i(1), i(0), rep(1)
 })),
+s("prebib", fmt(
+[[
+\documentclass[12pt]{{article}}
+\usepackage{{mathtools}}
+\usepackage{{multicol}}
+\usepackage{{physics}}
+\usepackage{{amssymb}} %maths stuff%
+\usepackage{{esint}} %for integrals
+\setcounter{{tocdepth}}{{4}} %subsubsections in toc
+\setlength{{\parindent}}{{0pt}} %no indent
+\usepackage[hidelinks]{{hyperref}}
+\usepackage[nameinlink, noabbrev]{{cleveref}} %refs
+\usepackage[nottoc]{{tocbibind}}
+\usepackage{{tikz}} %old figures package
+\usepackage{{pythonhighlight}} % insert python code \begin{{python}}
+\hfuzz=16pt
+% \usepackage{{siunitx}} %for tables
+\usepackage{{import}}
+\usepackage{{caption}}
+\usepackage[dvipsnames]{{xcolor}} %for coloured text
+\usepackage{{subcaption}} %for subfigures
+\usepackage{{pstool}}
+\usepackage{{xifthen}}
+\usepackage{{pdfpages}}
+\usepackage{{transparent}}
+\usepackage{{graphicx}}
+\usepackage{{scalefnt}}
+\usepackage{{svg}}
+\usepackage{{wrapfig}}
+\usepackage{{lmodern}}
+\usepackage[T1]{{fontenc}}
+\usepackage{{fancyhdr}} % Custom headers and footers
+\usepackage[a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm]{{geometry}}
+\usepackage{{array}}
+
+\pagestyle{{fancyplain}} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{{}} % No page header - if you want one, create it in the same way as the footers below
+
+\fancyfoot[L]{{}} % Empty left footer
+\fancyfoot[C]{{}} % Empty center footer
+\fancyfoot[R]{{\thepage}} % Page numbering for right footer
+\renewcommand{{\headrulewidth}}{{0pt}} % Remove header underlines
+\renewcommand{{\footrulewidth}}{{0pt}} % Remove footer underlines
+
+%\renewcommand{{\figurename}}{{fig}} %allows custom figure numbering
+\renewcommand{{\tablename}}{{Table}}
+
+%
+\makeatletter
+\def\smallunderbrace#1{{\mathop{{\vtop{{\m@th\ialign{{##\crcr
+   $\hfil\displaystyle{{#1}}\hfil$\crcr
+   \noalign{{\kern3\p@\nointerlineskip}} %creates \smallunderbrace command
+   \tiny\upbracefill\crcr\noalign{{\kern3\p@}}}}}}}}\limits}}
+\makeatother
+%
+
+\def\bibname{{\normalsize{{Bibliography}}}}\let\refname\bibname %set bibliography name
+
+\title{{{}}}
+
+\author{{O. Daniel O'Carroll\\
+\small{{{{22337259}}}}\\
+\small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}
+}}\\
+\date{{\today}}
+\begin{{document}}
+\maketitle
+\tableofcontents
+\pagebreak
+%
+{}
+%
+\pagebreak
+\begin{{thebibliography}}{{999}}
+\bibitem{{1}}
+\href{{https://arxiv.org/abs/0907.5424}}{{D. Baumann, TASI Lectures on Inflation, arXiv:0907.5424 [hep-th] (2009, rev. 2024).}}
+\bibitem{{2}}
+\href{{https://arxiv.org/abs/1205.3855}}{{D. Anninos, De Sitter Musings, arXiv:1205.3855 [hep-th] (2025).}}
+\bibitem{{3}}
+\href{{https://arxiv.org/abs/1407.2621}}{{D. Baumann, D. Green, and R. A. Porto, B-modes and the Nature of Inflation, arXiv:1407.2621 [hep-th] (2015).}}
+%
+\end{{thebibliography}}
+\end{{document}}
+]], {
+i(1), i(2)}
+)),
 -- Preamble
 s("pre1", fmt(
 [[
@@ -122,7 +208,7 @@ s("pre1", fmt(
 
 \author{{O. Daniel O'Carroll\\
 \small{{22337259}}\\
-\small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}
+\small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}}}
 \date{{\today}}
 \begin{{document}}
 \maketitle

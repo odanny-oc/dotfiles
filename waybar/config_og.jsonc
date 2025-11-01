@@ -56,11 +56,11 @@
 
     "group/pill-rotate":{ 
         "orientation": "horizontal",
-        "drawer":{
-            "transition-duration": 300,
-            "transition-left-to-right": true,
-            // "click-to-reveal": true
-        },
+        // "drawer":{
+        //     "transition-duration": 300,
+        //     "transition-left-to-right": true,
+        //     // "click-to-reveal": true
+        // },
         "modules": [
         "custom/reset",
         "custom/rotate",
