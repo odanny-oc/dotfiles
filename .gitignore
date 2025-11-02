@@ -21,5 +21,6 @@
 !/.bashrc
 !/.vimrc
 !/packages.txt
+!/pacman.conf
 !/flatpak_packages.txt
 !/.gitignore

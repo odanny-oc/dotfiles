@@ -1,8 +1,16 @@
 Rnote	com.github.flxzt.rnote	0.13.1	stable	system
-Mesa	org.freedesktop.Platform.GL.default	25.2.2	24.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	25.2.2	24.08extra	system
+Flatseal	com.github.tchx84.Flatseal	2.4.0	stable	system
+Moonlight	com.moonlight_stream.Moonlight	6.1.0	stable	system
+Mesa	org.freedesktop.Platform.GL.default	25.2.4	24.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	25.2.4	24.08extra	system
+Mesa	org.freedesktop.Platform.GL.default	25.2.4	25.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	25.2.4	25.08-extra	system
+Codecs Extra Extension	org.freedesktop.Platform.codecs-extra		25.08-extra	system
 openh264	org.freedesktop.Platform.openh264	2.5.1	2.5.1	system
 LLVM 19	org.freedesktop.Sdk.Extension.llvm19	19.1.7	24.08	system
 Rust stable	org.freedesktop.Sdk.Extension.rust-stable	1.89.0	24.08	system
 GNOME Application Platform version 48	org.gnome.Platform		48	system
+GNOME Application Platform version 49	org.gnome.Platform		49	system
 GNOME Software Development Kit version 48	org.gnome.Sdk		48	system
+Adwaita theme	org.kde.KStyle.Adwaita		6.8	system
+KDE Application Platform	org.kde.Platform		6.8	system
