@@ -6,6 +6,8 @@
 !/nvim/
 !/icons/
 !/icons/**
+!/zathura/
+!/zathura/**
 !/nvim/**
 !/hypr/
 !/hypr/scripts/
