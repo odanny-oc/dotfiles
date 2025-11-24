@@ -12,9 +12,9 @@ mason.setup({
     }
 })
 
-mason_lspconfig.setup ({
+mason_lspconfig.setup({
     ensure_installed = {
- --       "pyright",
+        --       "pyright",
         "lua_ls",
     },
     automatic_installations = true,

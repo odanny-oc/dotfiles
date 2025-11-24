@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/ocean/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?.lua;/home/ocean/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?/init.lua;/home/ocean/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?.lua;/home/ocean/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/ocean/.cache/nvim/packer_hererocks/2.1.1753364724/lib/lua/5.1/?.so"
+local package_path_str = "/home/ocean/.cache/nvim/packer_hererocks/2.1.1763318511/share/lua/5.1/?.lua;/home/ocean/.cache/nvim/packer_hererocks/2.1.1763318511/share/lua/5.1/?/init.lua;/home/ocean/.cache/nvim/packer_hererocks/2.1.1763318511/lib/luarocks/rocks-5.1/?.lua;/home/ocean/.cache/nvim/packer_hererocks/2.1.1763318511/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/ocean/.cache/nvim/packer_hererocks/2.1.1763318511/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -99,11 +99,6 @@ _G.packer_plugins = {
     path = "/home/ocean/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["csvview.nvim"] = {
-    loaded = true,
-    path = "/home/ocean/.local/share/nvim/site/pack/packer/start/csvview.nvim",
-    url = "https://github.com/hat0uma/csvview.nvim"
-  },
   ["diagnostic_manipulation.nvim"] = {
     loaded = true,
     path = "/home/ocean/.local/share/nvim/site/pack/packer/start/diagnostic_manipulation.nvim",
@@ -113,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ocean/.local/share/nvim/site/pack/packer/start/dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["encrypt.nvim"] = {
+    loaded = true,
+    path = "/home/ocean/.local/share/nvim/site/pack/packer/start/encrypt.nvim",
+    url = "https://github.com/elentok/encrypt.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -128,11 +128,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ocean/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
-  },
-  ["lazygit.nvim"] = {
-    loaded = true,
-    path = "/home/ocean/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
-    url = "https://github.com/kdheepak/lazygit.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,

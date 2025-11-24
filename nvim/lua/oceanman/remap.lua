@@ -68,12 +68,10 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 --copy to reg and os clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-
 vim.keymap.set("n", "<C-c>", "\"+y")
 vim.keymap.set("v", "<C-c>", "\"+y")
-
 vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("v", "<leader>y", "\"+y")
 
 vim.keymap.set("n", "<leader>v", vim.cmd.reg, opts)
 

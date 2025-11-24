@@ -8,7 +8,6 @@
 # oh-my-zsh plugins are loaded  in ~/.hyde.zshrc file, see the file for more information
 #
 
-
 #  Aliases 
 # Add aliases here
 alias rm='rm -i'
@@ -23,6 +22,9 @@ alias q='exit'
 # Add your configurations here
 export EDITOR=nvim
 export LD_LIBRARY_PATH=~/MultiNest/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/miktex_boost/usr/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/miktex_boost/icu/usr/lib/:$LD_LIBRARY_PATH
+
 # export LD_LIBRARY_PATH=~/exoplanet_atmospheres/.venv/cuba/:$LD_LIBRARY_PATH
 
 export PYENV_ROOT="$HOME/.pyenv"
