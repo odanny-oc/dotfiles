@@ -1,14 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-#
-#
-# eval "$(ssh-agent -s)"
-#
-# clear
 
 fastfetch 
 # If not running interactively, don't do anything
@@ -17,6 +6,7 @@ fastfetch
 # cursor='\[\e[1;m\e[1;33m\][\u : \W] $ \[\e[m\e[m\]'
 # export PS1=$cursor
 
+export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/MultiNest/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/wvkbd/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/libboost_locale_miktex/usr/lib/:$LD_LIBRARY_PATH

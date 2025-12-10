@@ -1,8 +1,9 @@
 !#/bin/bash
 
+device=$(brightnessctl -l | awk -F"'" '/Device/ { print $2; exit }')
 icon_path="$HOME/.config/icons"
 
-brightnessctl -d amdgpu_bl1 s 10%+
+brightnessctl -d $device s 10%+
 
 BRIGHTNESS=$(brightnessctl | grep -oP "\d+%")
 
