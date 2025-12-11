@@ -1,13 +1,12 @@
 set selection-clipboard clipboard
 
 # Make trackpad usable
-set smooth-scroll true
-set scroll-step 1
-set scroll-hstep 1
+set scroll-step 20
+set scroll-hstep 10
 set zoom-step 1
 
 # Hide bar
-set guioptions none
+# set guioptions none
 
 # Allow for smooth-scrolling with trackpad and usable j and k keys
 map k feedkeys "<C-Up>"
