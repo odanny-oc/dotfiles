@@ -6,6 +6,8 @@
 !/nvim/
 !/icons/
 !/icons/**
+!/wofi/
+!/wofi/**
 !/zathura/
 !/zathura/**
 !/nvim/**
