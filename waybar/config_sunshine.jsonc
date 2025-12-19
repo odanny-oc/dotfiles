@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "output": "eDP-1",
+    "output": "sunshine_1",
     "layer": "top", // Waybar at top layer
     "mod":"dock",
     "passthrough":false,
@@ -40,14 +40,10 @@
 
     "group/pill-laptop":{ 
         "orientation": "horizontal",
-        "drawer":{
-            "transition-duration": 500,
-            "transition-left-to-right": true,
-            // "click-to-reveal": true
-        },
         "modules": [
         "cpu",
         "temperature",
+        "keyboard-state",
     ] },
 
     "group/pill-left":{ 
@@ -126,10 +122,11 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "device-path":"/dev/input/event18",
+        "format": " {name} {icon} ",
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": " ",
+            "unlocked": " "
         }
     },
     "sway/mode": {
