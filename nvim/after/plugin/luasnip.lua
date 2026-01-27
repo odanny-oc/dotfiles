@@ -486,7 +486,7 @@ s("geqn", fmt(
 s("toc", fmt(
 [[
 \{}section*{{{}}}\label{{{}}}
-\addcontentsline{{toc}}{{{}}}{{{}}}
+\addcontentsline{{toc}}{{{}section}}{{{}}}
 ]],{
     i(1), i(2), rep(2), rep(1), rep(2)
 }
@@ -613,7 +613,7 @@ t("|\\right|")
 -- Derivative
 s("d", fmt(
 [[
-\dfrac{{d{}}}{{d{}}}
+\dfrac{{d {} }}{{d {} }}
 ]],
 {i(1), i(2)}
 )),
@@ -622,7 +622,7 @@ s("dd", fmt(
 [[
 \dfrac{{d^2 {}}}{{d {}{}}}
 ]],
-{i(1), c(3, {t("^2"), t("\\partial")}), i(2)}
+{i(1), i(2), c(3, {t("^2"), t("\\partial")})}
 )),
 -- Partial Derivative
 s("pd", fmt(

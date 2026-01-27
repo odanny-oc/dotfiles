@@ -322,7 +322,7 @@
 			"shutdown": "shutdown now",
 			"reboot": "systemctl reboot",
 			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
+			"logout": "hyprctl dispatch exit"
 		},
     },
     // "hyprland/window": {

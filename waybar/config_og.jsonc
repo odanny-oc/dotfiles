@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "output": "eDP-1",
+    // "output": "eDP-1",
     "layer": "top", // Waybar at top layer
     "mod":"dock",
     "passthrough":false,
@@ -17,6 +17,7 @@
         "custom/media",
         "group/pill-laptop",
         "group/pill-rotate",
+        "custom/keyboard",
     ],
 
     "modules-center":[
@@ -84,7 +85,6 @@
         "modules": [
         "custom/reset",
         "custom/rotate",
-        "custom/keyboard",
     ] },
 
     "group/pill#center":{ 
@@ -358,7 +358,7 @@
 			"shutdown": "shutdown now",
 			"reboot": "systemctl reboot",
 			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
+			"logout": "hyprctl dispatch exit"
 		},
     },
     // "hyprland/window": {
