@@ -88,6 +88,10 @@ vim.keymap.set("v", "<C-r>", function()
 end, { expr = true }
 )
 
+vim.keymap.set("n", "<leader>ss", function()
+  vim.opt.spell = not vim.o.spell
+end, { desc = "Toggle spell check" })
+
 
 vim.keymap.set("n", "<leader>gt", ":tabn<CR>", opts)
 vim.keymap.set("n", "<leader>gr", ":tabp<CR>", opts)

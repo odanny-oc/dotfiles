@@ -1,3 +1,16 @@
+-- Spellcheck for tex files
+
+vim.g.tex_comment_nospell = 1
+vim.g.tex_fast = "bcmMpr"
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "tex",
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = { "en_gb" }
+  end,
+})
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
