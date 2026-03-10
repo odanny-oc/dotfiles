@@ -1,0 +1,27 @@
+modmap:
+  - name: Tablet
+    device:
+      only: "UGTABLET UGEE S640 Keyboard"
+    remap:
+      LEFTALT: Esc
+
+keymap:
+  - name: Tablet
+    device:
+      only: "UGTABLET UGEE S640 Keyboard"
+    remap:
+      b : C-1
+      e : C-2
+      # Esc: C-3
+      Space : C-4
+      v : C-5
+      s: C-6
+      z: Delete
+      ESC-n : C-F8
+      KEY_KPPLUS : C-F9
+      KEY_KPMINUS : C-F10
+# modmap:
+#     remap:
+#       LEFTALT: LEFTMETA
+      # s: [LEFTMETA, 1]
+      # z: [LEFTMETA, 2]

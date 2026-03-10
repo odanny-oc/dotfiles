@@ -4,6 +4,8 @@
 
 !/swaync/**
 !/nvim/
+!/xremap/
+!/xremap/**
 !/icons/
 !/icons/**
 !/wofi/
