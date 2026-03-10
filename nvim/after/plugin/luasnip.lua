@@ -135,17 +135,124 @@ s("prebib", fmt(
 %
 \pagebreak
 \begin{{thebibliography}}{{999}}
-\bibitem{{1}}
-\href{{https://arxiv.org/abs/0907.5424}}{{D. Baumann, TASI Lectures on Inflation, arXiv:0907.5424 [hep-th] (2009, rev. 2024).}}
-\bibitem{{2}}
-\href{{https://arxiv.org/abs/1205.3855}}{{D. Anninos, De Sitter Musings, arXiv:1205.3855 [hep-th] (2025).}}
-\bibitem{{3}}
-\href{{https://arxiv.org/abs/1407.2621}}{{D. Baumann, D. Green, and R. A. Porto, B-modes and the Nature of Inflation, arXiv:1407.2621 [hep-th] (2015).}}
 %
 \end{{thebibliography}}
 \end{{document}}
 ]], {
 i(1), i(2)}
+)),
+s("prepres", fmt(
+[[
+\documentclass[12pt]{{beamer}}
+\usetheme{{CambridgeUS}}
+\usepackage{{mathtools}}
+\usepackage[normalem]{{ulem}}
+\usepackage{{multicol}}
+\usepackage{{physics}}
+\usepackage{{amssymb}} %maths stuff%
+\usepackage{{esint}} %for integrals
+\setcounter{{tocdepth}}{{4}} %subsubsections in toc
+\setlength{{\parindent}}{{0pt}} %no indent
+% \usepackage[nameinlink, noabbrev]{{cleveref}} %refs
+% \usepackage[hidelinks]{{hyperref}}" ,
+% \usepackage[nottoc]{{tocbibind}}
+\usepackage{{tikz}} %old figures package
+\usepackage{{pythonhighlight}} % insert python code \begin{{python}}
+\hfuzz=16pt
+% \usepackage{{siunitx}} %for tables
+\usepackage{{import}}
+\usepackage{{caption}}
+\usepackage[dvipsnames]{{xcolor}} %for coloured text
+\usepackage{{subcaption}} %for subfigures
+\usepackage{{pstool}}
+\usepackage{{xifthen}}
+\usepackage{{pdfpages}}
+\usepackage{{transparent}}
+\usepackage{{graphicx}}
+\usepackage{{scalefnt}}
+\usepackage{{svg}}
+\usepackage{{wrapfig}}
+\usepackage{{lmodern}}
+\usepackage[T1]{{fontenc}}
+\geometry{{paperwidth=16cm,paperheight=9cm}}
+\usepackage{{array}}
+\usepackage{{movie15}}
+% in documenet
+
+\setbeamertemplate{{navigation symbols}}{{}}
+\setbeamertemplate{{footline}}{{\insertframenumber}}
+\setbeamertemplate{{itemize items}}[circle]
+\setbeamertemplate{{enumerate items}}[default]
+\setbeamercolor{{item}}{{fg=red}}
+\usefonttheme[onlymath]{{serif}}
+
+%\renewcommand{{\figurename}}{{fig}} %allows custom figure numbering
+\renewcommand{{\tablename}}{{Table}}
+
+%
+\makeatletter
+\def\smallunderbrace#1{{\mathop{{\vtop{{\m@th\ialign{{##\crcr
+   $\hfil\displaystyle{{#1}}\hfil$\crcr
+   \noalign{{\kern3\p@\nointerlineskip}} %creates \smallunderbrace command
+   \tiny\upbracefill\crcr\noalign{{\kern3\p@}}}}}}}}\limits}}
+\makeatother
+%
+
+\captionsetup[figure]{{labelformat=empty}}
+
+\renewcommand{{\backgroundPath}}{{/home/danny/Pictures/uhj_phases.jpg}}
+% \graphicspath{{/home/danny/exoplanet_atmospheres/images}}
+
+\usepackage{{fancybox}}
+\usepackage{{empheq}}
+\usepackage{{tcolorbox}} %Boxes for theorems and definitions
+\tcbuselibrary{{theorems}}
+
+\newtcbtheorem[number within=section]{{mydef}}{{}}%
+{{colback=OrangeRed!20,colframe=Maroon!90!black,fonttitle=\bfseries}}{{def}}
+
+\newcommand{{\tocdef}}[3]{{%
+\begin{{mydef}}{{#1}}{{#2}}
+\phantomsubsection{{#2}}
+#3
+\end{{mydef}}}}
+
+\renewcommand{{\maketitle}}{{
+    \begingroup
+        \setbeamertemplate{{footline}}{{}}
+        \setbeamertemplate{{background canvas}}{{
+            \includegraphics[height=\paperheight, width = \paperwidth]{{\backgroundPath}}
+        }}
+        \begin{{frame}}
+            \titlepage
+        \end{{frame}}
+    \endgroup
+}}
+
+
+\title{{{}}}
+
+\setbeamercolor{{author}}{{fg=white}}
+\setbeamercolor{{date}}{{fg=white}}
+% \addtobeamertemplate{{title background}}{{\pgfsetfillopacity{{0.7}}}}{{\pgfsetfillopacity{{1}}}}
+\author{{O. Daniel O'Carroll
+    \textorpdfstring{{\\ \small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}}}}} 
+\date{{\today}}
+\institute[]{{Institute}}
+\begin{{document}}
+\maketitle
+{}
+\end{{document}}
+]], {
+i(1), i(2)}
+)),
+s("frame", fmt(
+[[
+\begin{{frame}}[t]{{{}}}
+    {}
+\end{{frame}}
+]],
+{i(1),i(2)}
 )),
 -- Preamble
 s("pre1", fmt(
@@ -182,6 +289,9 @@ s("pre1", fmt(
 \usepackage{{fancyhdr}} % Custom headers and footers
 \usepackage[a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm]{{geometry}}
 \usepackage{{array}}
+
+\newcommand{{\horrule}}[1]{{\rule{{\linewidth}}{{#1}}}} % Create horizontal rule command with 1 argument of height
+
 
 \pagestyle{{fancyplain}} % Makes all pages in the document conform to the custom headers and footers
 \fancyhead{{}} % No page header - if you want one, create it in the same way as the footers below
@@ -456,6 +566,21 @@ s("eqn", fmt(
 i(1), i(2), rep(1)
 }
 )),
+-- Aligned
+s("aligned", fmt(
+[[
+%
+\begin{{flalign}}
+    \begin{{aligned}}
+        {} 
+    \end{{aligned}}
+    \label{{eq{}}}
+\end{{flalign}}
+%
+]],{
+i(1), i(2)
+}
+)),
 -- Equation Automatic Numbering
 s("aeqn", fmt(
 [[
@@ -514,17 +639,19 @@ i(1), i(2), i(3)
 --Figure
 s("fig", fmt(
 [[
-\renewcommand{{\thefigure}}{{{}}}
-\begin{{figure}}[H]
+\begin{{figure}}[ht]
 	\centering
-    \includesvg[width=\linewidth]{{{}}}
+    {}[width=\linewidth]{{{}}}
 	\captionsetup{{font=footnotesize}}
 	\caption{{{}}}
 	\label{{fig{}}}
 \end{{figure}}
 %
 ]],{
-i(1), i(2), i(3), rep(1)
+    c(1, {
+    t("\\includesvg"),
+    t("\\includegraphics"),
+    }), i(2), i(3), i(4)
 }
 )),
 -- Subfigure
@@ -600,14 +727,19 @@ s("wrapfig", fmt(
 -- Big Brackets
 s("bigbrac", fmt(
 [[
-\left {} {}
-]],{i(2),
-c(1, {
-t("(\\right)"),
-t("\\{\\right \\}"),
-t("[\\right]"),
-t("|\\right|")
-})
+\left{} {} \right{}
+]],{ c(1, {
+t("("),
+t("\\{"),
+t("["),
+t("|")
+}), i(3),
+c(2, {
+t(")"),
+t("\\}"),
+t("]"),
+t("|")
+}),
 }
 )),
 -- Derivative
