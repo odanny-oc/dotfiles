@@ -448,7 +448,8 @@ s("eqn", fmt(
 %
 \renewcommand{{\theequation}}{{{}}}
 \begin{{flalign}}
-    {} \label{{eq{}}}
+    {} 
+    \label{{eq{}}}
 \end{{flalign}}
 %
 ]],{
@@ -460,7 +461,8 @@ s("aeqn", fmt(
 [[
 %
 \begin{{flalign}}
-    {} \label{{eq{}}}
+    {} 
+    \label{{eq{}}}
 \end{{flalign}}
 %
 ]],{
@@ -472,7 +474,8 @@ s("geqn", fmt(
 [[
 %
 \begin{{gather{}}}
-    {} \label{{eq{}}}
+    {} 
+    \label{{eq{}}}
 \end{{gather{}}}
 %
 ]],{
@@ -727,7 +730,8 @@ s("empheq", fmt(
 [[
 %
 \begin{{empheq}}[box = \shadowbox*]{{align}}
- {} . \label{{eq{}}}
+ {} 
+ \label{{eq{}}}
 \end{{empheq}}
 %
 ]],{

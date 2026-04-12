@@ -1,0 +1,29 @@
+#version 300 es
+precision highp float;
+
+in vec2 v_texcoord;
+uniform sampler2D tex;
+out vec4 fragColor;
+
+// 0.0 = original color
+// 1.0 = fully grayscale
+const float grayscaleStrength = 1.0;
+
+// Rec.709 luminance weights (same ones you used)
+const vec3 LUMA = vec3(0.2126, 0.7152, 0.0722);
+
+void main() {
+    vec4 pixColor = texture(tex, v_texcoord);
+    vec3 color = pixColor.rgb;
+
+    // Compute perceptual luminance
+    float gray = dot(color, LUMA);
+
+    // Grayscale color
+    vec3 grayColor = vec3(gray);
+
+    // Blend original with grayscale
+    color = mix(color, grayColor, grayscaleStrength);
+
+    fragColor = vec4(color, pixColor.a);
+}

@@ -8,6 +8,14 @@
 # oh-my-zsh plugins are loaded  in ~/.hyde.zshrc file, see the file for more information
 #
 
+restore_alsa() {
+ while [ -z "$(pidof pulseaudio)" ]; do
+  sleep 0.5
+ done
+ alsactl -f /var/lib/alsa/asound.state restore
+}
+restore_alsa &
+
 #  Aliases 
 # Add aliases here
 alias rm='rm -i'
@@ -20,6 +28,7 @@ alias q='exit'
 
 #  This is your file 
 # Add your configurations here
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 export EDITOR=nvim
 export LD_LIBRARY_PATH=~/MultiNest/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$HOME/miktex_boost/usr/lib/:$LD_LIBRARY_PATH
