@@ -19,7 +19,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-alias rm='rm -i'
+alias rm='trash -i'
 alias ff='clear && fastfetch'
 
 alias v='nvim .'
@@ -39,7 +39,7 @@ function cds {
 }
 
 function wp {
-    swww img --resize $2 $1 --transition-fps 60 --transition-type any && wal -i $1
+    awww img --resize $2 $1 --transition-fps 60 --transition-type any && wal -i $1
 }
 
 #alias "cd exoplanet_atmospheres/"='cd ~/exoplanet_atmospheres/ && source ~/exoplanet_atmospheres/.venv/bin/activate'

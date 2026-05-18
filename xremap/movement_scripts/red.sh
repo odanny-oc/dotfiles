@@ -7,4 +7,8 @@ ydotool mousemove -a 856 147
 
 ydotool click 0xC0
 
+# ydotool mousemove -a 861 187
+#
+# ydotool click 0xC0
+
 ydotool mousemove -a $RETURNX $RETURNY

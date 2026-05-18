@@ -35,6 +35,28 @@ vim.keymap.set({"i", "s"}, "<A-j>", function()
     end
 end, { silent = true })
 
+-- Functions
+
+local function generate_label(args)
+    local title = args[1][1] or ""
+    -- Convert to lowercase, replace spaces with hyphens, 
+    -- and remove special characters for a clean label
+    local label = title:lower():gsub("%s+", "_"):gsub("[^%w%-_]", "")
+    return  label
+end
+
+local function match_bracket(args)
+    local opening = args[1][1]
+    local brackets = {
+        ["("] = ")",
+        ["\\{"] = "\\}",
+        ["["] = "]",
+        ["|"] = "|",
+        ["\\langle"] = "\\rangle"
+    }
+    return brackets[opening] or ""
+end
+
 --examples
 ls.add_snippets("lua", {
     s("hello",{
@@ -88,7 +110,7 @@ s("prebib", fmt(
 \usepackage{{transparent}}
 \usepackage{{graphicx}}
 \usepackage{{scalefnt}}
-\usepackage{{svg}}
+\usepackage[inkscapelatex=false]{{svg}}
 \usepackage{{wrapfig}}
 \usepackage{{lmodern}}
 \usepackage[T1]{{fontenc}}
@@ -141,7 +163,7 @@ s("prebib", fmt(
 ]], {
 i(1), i(2)}
 )),
-s("prepres", fmt(
+s("prebeamer", fmt(
 [[
 \documentclass[12pt]{{beamer}}
 \usetheme{{CambridgeUS}}
@@ -170,7 +192,7 @@ s("prepres", fmt(
 \usepackage{{transparent}}
 \usepackage{{graphicx}}
 \usepackage{{scalefnt}}
-\usepackage{{svg}}
+\usepackage[inkscapelatex=false]{{svg}}
 \usepackage{{wrapfig}}
 \usepackage{{lmodern}}
 \usepackage[T1]{{fontenc}}
@@ -209,13 +231,12 @@ s("prepres", fmt(
 \tcbuselibrary{{theorems}}
 
 \newtcbtheorem[number within=section]{{mydef}}{{}}%
-{{colback=OrangeRed!20,colframe=Maroon!90!black,fonttitle=\bfseries}}{{def}}
+{{colback=White!20,colframe=Black!90!black,fonttitle=\bfseries}}{{def}}
 
-\newcommand{{\tocdef}}[3]{{%
-\begin{{mydef}}{{#1}}{{#2}}
-\phantomsubsection{{#2}}
-#3
-\end{{mydef}}}}
+\newcommand{{\beamereq}}[2]{{%
+\begin{{mydef*}}{{#1}}
+#2
+\end{{mydef*}}}}
 
 \renewcommand{{\maketitle}}{{
     \begingroup
@@ -282,7 +303,7 @@ s("pre1", fmt(
 \usepackage{{transparent}}
 \usepackage{{graphicx}}
 \usepackage{{scalefnt}}
-\usepackage{{svg}}
+\usepackage[inkscapelatex=false]{{svg}}
 \usepackage{{wrapfig}}
 \usepackage{{lmodern}}
 \usepackage[T1]{{fontenc}}
@@ -358,7 +379,7 @@ s("prenotes", fmt(
 \usepackage{{transparent}}
 \usepackage{{graphicx}}
 \usepackage{{scalefnt}}
-\usepackage{{svg}}
+\usepackage[inkscapelatex=false]{{svg}}
 \usepackage{{wrapfig}}
 \usepackage{{lmodern}}
 \usepackage[T1]{{fontenc}}
@@ -382,21 +403,16 @@ s("prenotes", fmt(
 \tcbuselibrary{{theorems}}
 
 \newtcbtheorem[number within=section]{{mydef}}{{Definition}}%
-{{colback=LimeGreen!50,colframe=OliveGreen!80!black,fonttitle=\bfseries}}{{def}}
-
-\newcommand{{\phantomsubsection}}[1]{{%
-\par\refstepcounter{{subsection}}% Increase section counter
-\sectionmark{{#1}}% Add section mark (header)
-\addcontentsline{{toc}}{{subsection}}{{\protect\numberline{{\thesubsection}}#1}}% Add section to ToC
-% Add more content here if needed.
-}}
+{{colback=White!50,colframe=Black!80!black,fonttitle=\bfseries}}{{def}}
 
 % Automatically add definitions to the ToC
 \newcommand{{\tocdef}}[3]{{%
+\refstepcounter{{subsection}}
 \begin{{mydef}}{{#1}}{{#2}}
-\phantomsubsection{{#2}}
+    \addcontentsline{{toc}}{{subsection}}{{\protect\numberline{{\ref{{def:#2}}}}#1}}
 #3
-\end{{mydef}}}}
+\end{{mydef}}
+}}
 
 \usepackage[a4paper, left=20mm, right=20mm,
 top=20mm, bottom=20mm]{{geometry}}
@@ -484,7 +500,7 @@ $\hfil\displaystyle{{#1}}\hfil$\crcr
 \author{{O. Daniel O'Carroll\\
 \small{{22337259}}\\
 \small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}}}
-\date{{\normalsize\today (45$^2$)}}
+\date{{\normalsize\today}}
 \begin{{document}}
 %\begin{{minipage}}{{\textwidth}}
 \maketitle
@@ -500,6 +516,140 @@ i(1), i(0)
 }
 )
 ),
+s("prelet", fmt(
+[[
+\documentclass[11pt]{{article}}
+\setcounter{{tocdepth}}{{4}} %subsubsections in toc
+\setlength{{\parindent}}{{0pt}} %no indent
+\usepackage{{mathtools}}
+\usepackage{{physics}}
+\usepackage{{esint}} %for integrals
+\usepackage{{amssymb}} %maths stuff%
+\usepackage[dvipsnames, table]{{xcolor}} %for coloured text
+\usepackage[unicode, draft=false]{{hyperref}}
+\definecolor{{linkcolour}}{{rgb}}{{0,0.2,0.6}}
+\hypersetup{{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}}
+\usepackage[nameinlink, noabbrev]{{cleveref}}
+%\usepackage[nottoc]{{tocbibind}}
+\usepackage{{tikz}} %old figures package
+\usepackage{{pythonhighlight}} % insert python code \begin{{python}}
+\hfuzz=16pt
+% \usepackage{{siunitx}} %for tables
+\usepackage{{import}}
+\usepackage{{tabularx}}
+\usepackage{{caption}}
+\usepackage{{subcaption}} %for subfigures
+\usepackage{{pstool}}
+\usepackage{{xifthen}}
+\usepackage{{pdfpages}}
+\usepackage{{transparent}}
+\usepackage{{graphicx}}
+\usepackage{{scalefnt}}
+\usepackage[inkscapelatex=false]{{svg}}
+\usepackage{{wrapfig}}
+\usepackage{{lmodern}}
+\usepackage[T1]{{fontenc}}
+\usepackage{{multicol}}
+\usepackage{{array}}
+\usepackage{{sectsty}} % Allows customizing section commands
+\allsectionsfont{{\centering\normalfont\scshape}} % Make all sections centered, the default font and small caps
+
+\usepackage{{tocloft}}
+% Change the font for all Table of Contents entries (sections, subsections, etc.)
+\renewcommand{{\cfttoctitlefont}}{{\normalfont\scshape\Large}}
+\renewcommand{{\cftsecfont}}{{\normalfont\scshape}}
+\renewcommand{{\cftsubsecfont}}{{\normalfont\scshape}}
+
+% Change the font for page numbers in the Table of Contents
+% \renewcommand{{\cftpagefont}}{{\normalfont\scshape}}
+
+\usepackage{{tcolorbox}} %Boxes for theorems and definitions
+\tcbuselibrary{{theorems}}
+
+\newtcbtheorem[number within=section]{{mydef}}{{Definiton}}%
+{{colback=White!5,colframe=Black!35!black,fonttitle=\bfseries}}{{def}}
+
+\newcommand{{\tocdef}}[3]{{%
+\refstepcounter{{subsection}}
+\begin{{mydef}}{{#1}}{{#2}}
+    \addcontentsline{{toc}}{{subsection}}{{\protect\numberline{{\ref{{def:#2}}}}#1}}
+#3
+\end{{mydef}}
+}}
+
+\usepackage[a4paper, left=10mm, right=10mm,
+ top=10mm, bottom=20mm]{{geometry}}
+
+\renewcommand{{\figurename}}{{fig}} %allows custom figure numbering
+\renewcommand{{\tablename}}{{Table}}
+
+\usepackage{{fancyhdr}} % Custom headers and footers
+\pagestyle{{fancyplain}} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{{}} % No page header - if you want one, create it in the same way as the footers below
+
+\fancyfoot[L]{{}} % Empty left footer
+\fancyfoot[C]{{}} % Empty center footer
+\fancyfoot[R]{{}} % Page numbering for right footer
+\renewcommand{{\headrulewidth}}{{0pt}} % Remove header underlines
+\renewcommand{{\footrulewidth}}{{0pt}} % Remove footer underlines
+% \setlength{{\headheight}}{{13.6pt}} % Customize the height of the header
+
+%
+\makeatletter
+\def\smallunderbrace#1{{\mathop{{\vtop{{\m@th\ialign{{##\crcr
+    $\hfil\displaystyle{{#1}}\hfil$\crcr
+    \noalign{{\kern3\p@\nointerlineskip}} %creates \smallunderbrace command
+    \tiny\upbracefill\crcr\noalign{{\kern3\p@}}}}}}}}\limits}}
+\makeatother
+%
+\newcommand{{\threebythree}}[9]{{
+\begin{{pmatrix}}
+{{#1}} & {{#2}} & {{#3}} \\
+{{#4}} & {{#5}} & {{#6}} \\
+{{#7}} & {{#8}} & {{#9}}
+\end{{pmatrix}}
+}}
+
+\newcommand{{\sym}}[6]{{
+\begin{{pmatrix}}
+{{#1}} & {{#4}} & {{#5}} \\
+{{#4}} & {{#2}} & {{#6}} \\
+{{#5}} & {{#6}} & {{#3}}
+\end{{pmatrix}}
+}}
+
+\newcommand{{\antisym}}[3]{{
+\begin{{pmatrix}}
+0 & {{#1}} & {{#2}} \\
+-{{#1}} & 0 & {{#3}} \\
+-{{#2}} & -{{#3}} & 0
+\end{{pmatrix}}
+}}
+%
+%\setcounter{{chapter}}{{1}} % Set the chapter counter to 1
+\numberwithin{{equation}}{{subsection}} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{{figure}}{{subsection}} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{{table}}{{subsection}} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%
+\newcommand{{\horrule}}[1]{{\rule{{\linewidth}}{{#1}}}} % Create horizontal rule command with 1 argument of height
+
+%\renewcommand{{\bibname}}{{\scalefont{{.7}} Bibliography}}
+
+\begin{{document}}
+\begin{{center}}
+    \horrule{{0.5pt}} \\ [0.4cm] % Thin top horizontal rule
+    \Large O. Daniel O'Carroll\\ % The assignment title
+    \small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}\\
+    \small {}
+    \horrule{{2pt}} \\ [0.5cm] % Thick bottom horizontal rule
+\end{{center}}
+{}
+\end{{document}}
+]], {
+i(1), i(2)
+}
+)),
 -- Table
 s("tab", fmt(
 [[
@@ -569,16 +719,11 @@ i(1), i(2), rep(1)
 -- Aligned
 s("aligned", fmt(
 [[
-%
-\begin{{flalign}}
     \begin{{aligned}}
         {} 
     \end{{aligned}}
-    \label{{eq{}}}
-\end{{flalign}}
-%
 ]],{
-i(1), i(2)
+i(1)
 }
 )),
 -- Equation Automatic Numbering
@@ -639,7 +784,7 @@ i(1), i(2), i(3)
 --Figure
 s("fig", fmt(
 [[
-\begin{{figure}}[ht]
+\begin{{figure}}[ht!]
 	\centering
     {}[width=\linewidth]{{{}}}
 	\captionsetup{{font=footnotesize}}
@@ -728,18 +873,20 @@ s("wrapfig", fmt(
 s("bigbrac", fmt(
 [[
 \left{} {} \right{}
-]],{ c(1, {
-t("("),
-t("\\{"),
-t("["),
-t("|")
-}), i(3),
-c(2, {
-t(")"),
-t("\\}"),
-t("]"),
-t("|")
+]],
+{
+--Node 1: The ChoiceNode for the opening bracket
+c(1, {
+    t("("),
+    t("\\{"),
+    t("["),
+    t("|"),
+    t("\\langle")
 }),
+-- Node 2: The content inside the brackets
+i(2),
+-- Node 3: The FunctionNode that mirrors Node 1
+f(match_bracket, {1})
 }
 )),
 -- Derivative
@@ -759,7 +906,7 @@ s("dd", fmt(
 -- Partial Derivative
 s("pd", fmt(
 [[
-\dfrac{{\partial{}}}{{\partial{}}}
+\dfrac{{\partial {}}}{{\partial {}}}
 ]],
 {i(1), i(2)}
 )),
@@ -806,6 +953,24 @@ s("cases", fmt(
 ]],{
 i(1), i(2)}
 )),
+-- Box Definition Beamer
+s("beamereq", fmt(
+[[
+%
+\beamereq{{{}}}
+    {{
+%
+\begin{{flalign}}
+    {} 
+    \label{{eq{}}}
+\end{{flalign}}
+%
+    }}
+%
+]],{
+    i(1), i(2), i(3)
+}
+)),
 -- Box Definition
 s("def", fmt(
 [[
@@ -816,7 +981,7 @@ s("def", fmt(
     }}
 %
 ]],{
-    i(1), rep(1), i(2)
+    i(1), f(generate_label, {1}), i(2)
 }
 )),
 -- In General
@@ -830,14 +995,14 @@ s("ig", fmt(
 -- Fraction
 s("ff", fmt(
 [[
-\dfrac{{{}}}{{{}}}
+\{}{{{}}}{{{}}}
 ]],{
-    i(1), i(2)
+   c(1, {t("dfrac"), t("frac")}), i(2), i(3)
 }
 )),
 s("frame", fmt(
 [[
-\begin{{frame}}[t]{{{}}}
+\begin{{frame}}[c]{{{}}}
 {}
 \end{{frame}}
 ]],{

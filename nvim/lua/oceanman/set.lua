@@ -19,6 +19,9 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth =4
 vim.opt.expandtab = true
 
+vim.opt.ignorecase = true  -- Search is case-insensitive
+vim.opt.smartcase = true -- Unless the search query contains an uppercase letter
+
 vim.opt.smartindent = true
 
 vim.opt.swapfile = true

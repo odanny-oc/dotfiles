@@ -17,7 +17,7 @@ keymap:
       v : C-5
       s: C-6
       z: Delete
-      ESC-n : C-F8
+      n : C-F8
       KEY_KPPLUS : C-F9
       KEY_KPMINUS : C-F10
 # modmap:
