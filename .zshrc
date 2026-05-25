@@ -8,17 +8,17 @@
 # oh-my-zsh plugins are loaded  in ~/.hyde.zshrc file, see the file for more information
 #
 
-restore_alsa() {
- while [ -z "$(pidof pulseaudio)" ]; do
-  sleep 0.5
- done
- alsactl -f /var/lib/alsa/asound.state restore
-}
-restore_alsa &
+# restore_alsa() {
+#  while [ -z "$(pidof pulseaudio)" ]; do
+#   sleep 0.5
+#  done
+#  alsactl -f /var/lib/alsa/asound.state restore
+# }
+# restore_alsa &
 
 #  Aliases 
 # Add aliases here
-alias rm='rm -i'
+alias rm='trash -i'
 alias ff='fastfetch'
 alias v='nvim .'
 alias ls='ls -a --color=auto'

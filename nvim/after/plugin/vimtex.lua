@@ -28,3 +28,4 @@ vim.g.maplocalleader = ","
 vim.g.vimtex_format_enabled = 1
 
 vim.keymap.set("n", "<C-j>", ":VimtexError<CR>:w<CR>")
+vim.keymap.set("n", "<localleader>mm", ":w<CR>:VimtexCompileMulti<CR>")
