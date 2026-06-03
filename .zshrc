@@ -35,7 +35,7 @@ function pdf {
 }
 
 function cds {
-    cd $1 && source $1'/.venv/bin/activate' 
+    cd $1 && source $HOME/$1'/.venv/bin/activate' 
 }
 
 function wp {
@@ -46,6 +46,10 @@ function wp {
 
 # Created by `pipx` on 2025-07-04 16:11:11
 export PATH="$PATH:/home/danny/.local/bin"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH

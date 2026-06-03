@@ -1,0 +1,333 @@
+// -*- mode: jsonc -*-
+// ~/.config/waybar/modules.jsonc
+{
+    // Group Pills
+
+        "group/pill-tray": { 
+            "orientation": "horizontal",
+            "modules": [
+                "custom/notification",
+                "tray"
+            ] 
+        },
+        
+        "group/pill-laptop": { 
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 500,
+                "transition-left-to-right": true
+            },
+            "modules": [
+                "cpu",
+                "temperature"
+            ] 
+        },
+        
+        "group/pill-left": { 
+            "orientation": "horizontal",
+            "modules": [
+                "pulseaudio",
+                "custom/bluetooth_battery"
+            ] 
+        },
+        
+        "group/pill-backlight": { 
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 300,
+                "transition-left-to-right": true
+            },
+            "modules": [
+                "backlight",
+                "custom/backlight_up",
+                "custom/backlight_down"
+            ] 
+        },
+        
+        "group/pill-rotate": { 
+            "orientation": "horizontal",
+            "modules": [
+                "custom/reset",
+                "custom/rotate"
+            ] 
+        },
+        
+        
+        "group/pill-memory": { 
+            "orientation": "inherit",
+            "drawer": {
+                "transition-duration": 500,
+                "transition-left-to-right": true
+            },
+            "modules": [
+                "memory",
+                "memory#mem2"
+            ] 
+        },
+    // Individual Modules Definition
+"hyprland/window": {
+    "format": "{title} ",
+    "format-empty": "󰇄  Desktop",
+    "separate-outputs": true,
+    "rewrite": {
+        ".*Mozilla Firefox.*": "󰈹  Firefox",
+        ".*Google Chrome.*": "  Chrome",
+        ".*Brave.*": "🦁 Brave",
+        ".*Visual Studio Code.*": "󰨞  VS Code",
+        ".*nvim.*": " NeoVim",
+        // ".*Ghostty.*": "  Terminal",
+        "class<com.mitchellh.ghostty> title<(.*)>": "  Terminal",
+        // ".*~.*": "  Terminal",
+        " ":  "󰇄  Desktop",
+    }
+},
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "9": "",
+            "10": "",
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
+    },
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": { "on": " " },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": { "on": " " },
+        "single-icons": { "on": "1 " },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "custom/keyboard": {
+        "on-click": "~/.config/hypr/scripts/wvb_keyboard.sh",
+        "tooltip": false,
+        "format": " "
+    },
+
+    "custom/rotate": {
+        "format": " ",
+        "on-click": "~/.config/hypr/scripts/rotate_screen_waybar.sh",
+        "tooltip": false
+    },
+
+    "custom/backlight_up": {
+        "format": "󰜷 ",
+        "on-click": "~/.config/hypr/scripts/brightness_up.sh",
+        "tooltip": false
+    },
+
+    "custom/backlight_down": {
+        "format": "󰜮",
+        "on-click": "~/.config/hypr/scripts/brightness_down.sh",
+        "tooltip": false
+    },
+
+    "custom/reset": {
+        "format": "󰜷 ",
+        "on-click": "~/.config/hypr/scripts/reset_screen_waybar.sh",
+        "tooltip": false
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon} ",
+        "format-icons": {
+            "notification": " <span foreground='red'><sup></sup></span>",
+            "none": " ",
+            "dnd-notification": " <span foreground='red'><sup></sup></span>",
+            "dnd-none": " ",
+            "inhibited-notification": " <span foreground='red'><sup></sup></span>",
+            "inhibited-none": " ",
+            "dnd-inhibited-notification": " <span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10,
+        "icons": {
+            "blueman": "bluetooth",
+            "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        }
+    },
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 1, 
+        "format": "{:%H:%M:%S %a %B %d}",
+        "format-alt": "{:%H:%M:%S %Y-%m-%d}"
+    },
+
+    "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": "{used}GB  ",
+        "tooltip": false
+    },
+
+    "memory#mem2": {
+        "format": "{swapUsed}GB 🗁",
+        "tooltip": false
+    },
+
+    "temperature": {
+        "interval": 1,
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+
+    "backlight": {
+        "format": "{percent}% {icon} ",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "interval": 5,
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "󰝟  {icon}",
+        "format-muted": "󰝟  {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": " ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/bluetooth_battery": {
+        "exec": "~/.config/hypr/scripts/bluetooth_battery.sh",
+        "format": " {}%   ",
+        "interval": 10,
+        "tooltip": false
+    },
+
+    // "custom/media": {
+    //     "format": "{icon} {text}",
+    //     "return-type": "json",
+    //     "max-length": 40,
+    //     "format-icons": {
+    //         "spotify": "",
+    //         "default": "🎜"
+    //     },
+    //     "escape": true,
+    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    // },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown now",
+            "reboot": "systemctl reboot",
+            "suspend": "systemctl suspend",
+            "lock": "hyprlock",
+            "logout": "hyprctl dispatch exit"
+        }
+    }
+}

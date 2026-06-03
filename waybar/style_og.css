@@ -43,12 +43,8 @@ window#waybar.hidden {
     padding-right: 16px;
 	border-radius: 26px;
 	transition: none;
-	/*
     color: #f8f8f2;
 	background: #282a36;
-    */
-    color: transparent;
-	background: transparent;
 }
 
 window#waybar.termite #window,
