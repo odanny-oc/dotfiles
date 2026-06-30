@@ -83,6 +83,15 @@ s("beg", fmt(
 ]],{
     i(1), i(0), rep(1)
 })),
+s("presub", fmt(
+[[
+\documentclass[{}]{{subfiles}}
+\begin{{document}}
+{}
+\end{{document}}
+]],{
+    i(1), i(2)
+})),
 s("prebib", fmt(
 [[
 \documentclass[12pt]{{article}}
@@ -784,7 +793,7 @@ i(1), i(2), i(3)
 --Figure
 s("fig", fmt(
 [[
-\begin{{figure}}[ht!]
+\begin{{figure}}[H]
 	\centering
     {}[width=\linewidth]{{{}}}
 	\captionsetup{{font=footnotesize}}

@@ -1,0 +1,24 @@
+{
+    "hyprland/workspaces": {
+    "rotate": 0,
+    "class": "no-margin-padding",
+    "all-outputs": true,
+    "active-only": false,
+    "on-click": "activate",
+    "disable-scroll": true,
+    "persistent-workspaces": {},
+    "disable-scroll": true,
+    "warp-on-scroll": false,
+    "format": "{name} {icon}",
+    "format-icons": {
+        "1": " ",
+        "2": " ",
+        "3": " ",
+        // "9": "",
+        // "10": "",
+        "urgent": "",
+        "active": "",
+        "default": ""
+    }
+},
+}

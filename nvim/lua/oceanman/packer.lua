@@ -6,6 +6,10 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 
     -- Packer can manage itself
+    use {
+         'nvim-lualine/lualine.nvim',
+         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+        }
     use 'wbthomason/packer.nvim'
     use { "nvim-lua/plenary.nvim" }
     use { "ThePrimeagen/vim-be-good" }
@@ -79,6 +83,13 @@ return require('packer').startup(function(use)
     use { 'tpope/vim-surround' }
     use { 'nvimtools/none-ls.nvim' }
 
+    use {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+        require("nvim-autopairs").setup {}
+    end
+    }
     -- use { 'moyiz/git-dev.nvim' }
     -- use { 'luk400/vim-jukit' }
 end)

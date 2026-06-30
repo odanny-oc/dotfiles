@@ -1,9 +1,14 @@
-/*
-To use updated module, please delete this file. 
-To modify the module, 
-    copy the content from xdg_share/waybar/modules/*.jsonc to ~/.config/waybar/modules/*.jsonc
-
-
-See https://man.archlinux.org/man/extra/waybar/waybar-idle-inhibitor.5.en
-*/
-{}
+{
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "rotate": 0,
+    "format-icons": {
+      "activated": "\udb80\udd76",
+      "deactivated": "\udb81\udeca"
+    },
+    "justify": "center",
+    "tooltip": "true",
+    "tooltip-format-activated": "<span foreground='#98c379'>\udb80\udd76 Caffeine Mode Active</span>\nPrevents system from going to sleep",
+    "tooltip-format-deactivated": "<span foreground='#e06c75'>\udb81\udeca Caffeine Mode Inactive</span>\nSystem will follow normal power settings"
+  }
+}

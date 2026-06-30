@@ -77,6 +77,7 @@ vim.lsp.config('pyright', {
     })
 
 vim.lsp.enable('pyright')
+vim.lsp.enable('jdtls')
     -- lspconfig.texlab.setup {
     --     cmd = { "texlab" },
     --     filetypes = { "tex", "plaintex", "bib" },
