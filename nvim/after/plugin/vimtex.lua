@@ -12,6 +12,7 @@ vim.g.vimtex_quickfix_mode = 0
 
 -- Compiler configuration with shell-escape enabled
 vim.g.vimtex_compiler_latexmk = {
+    aux_dir = '.build',
     options = {
         '-pdf',
         '-shell-escape',
@@ -28,3 +29,4 @@ vim.g.maplocalleader = ","
 vim.g.vimtex_format_enabled = 1
 
 vim.keymap.set("n", "<C-j>", ":VimtexError<CR>:w<CR>")
+vim.keymap.set("n", "<leader><leader>c", ":w<CR>:VimtexCompileCopyPDF<CR>")

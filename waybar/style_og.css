@@ -60,7 +60,7 @@ window#waybar.PCSX2 #window {
 	margin-left: 12px;
 	margin-bottom: 0;
 	border-radius: 26px;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.2);
 	transition: none;
 }
 

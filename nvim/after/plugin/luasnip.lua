@@ -74,6 +74,16 @@ ls.add_snippets("lua", {
 
 -- tex snippets 
 ls.add_snippets('tex', {
+s("presub", fmt(
+[[
+\documentclass[{}]{{subfiles}}
+\begin{{document}}
+{}
+\end{{document}}
+]],{
+    i(1), i(2)
+}
+)),
 -- Example
 s("beg", fmt(
 [[
@@ -117,6 +127,9 @@ s("prebib", fmt(
 \usepackage{{fancyhdr}} % Custom headers and footers
 \usepackage[a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm]{{geometry}}
 \usepackage{{array}}
+\usepackage{{subfiles}}
+
+\graphicspath{{{{./images/}}}}
 
 \pagestyle{{fancyplain}} % Makes all pages in the document conform to the custom headers and footers
 \fancyhead{{}} % No page header - if you want one, create it in the same way as the footers below
@@ -166,7 +179,7 @@ i(1), i(2)}
 s("prebeamer", fmt(
 [[
 \documentclass[12pt]{{beamer}}
-\usetheme{{CambridgeUS}}
+\usetheme{{{}}}
 \usepackage{{mathtools}}
 \usepackage[normalem]{{ulem}}
 \usepackage{{multicol}}
@@ -199,7 +212,9 @@ s("prebeamer", fmt(
 \geometry{{paperwidth=16cm,paperheight=9cm}}
 \usepackage{{array}}
 \usepackage{{movie15}}
-% in documenet
+\usepackage{{subfiles}}
+
+\graphicspath{{{{./images/}}}}
 
 \setbeamertemplate{{navigation symbols}}{{}}
 \setbeamertemplate{{footline}}{{\insertframenumber}}
@@ -222,8 +237,7 @@ s("prebeamer", fmt(
 
 \captionsetup[figure]{{labelformat=empty}}
 
-\renewcommand{{\backgroundPath}}{{/home/danny/Pictures/uhj_phases.jpg}}
-% \graphicspath{{/home/danny/exoplanet_atmospheres/images}}
+% \renewcommand{{\backgroundPath}}{{}}
 
 \usepackage{{fancybox}}
 \usepackage{{empheq}}
@@ -241,9 +255,9 @@ s("prebeamer", fmt(
 \renewcommand{{\maketitle}}{{
     \begingroup
         \setbeamertemplate{{footline}}{{}}
-        \setbeamertemplate{{background canvas}}{{
-            \includegraphics[height=\paperheight, width = \paperwidth]{{\backgroundPath}}
-        }}
+       % \setbeamertemplate{{background canvas}}{{
+       %     \includegraphics[height=\paperheight, width = \paperwidth]{{\backgroundPath}}
+       % }}
         \begin{{frame}}
             \titlepage
         \end{{frame}}
@@ -256,8 +270,10 @@ s("prebeamer", fmt(
 \setbeamercolor{{author}}{{fg=white}}
 \setbeamercolor{{date}}{{fg=white}}
 % \addtobeamertemplate{{title background}}{{\pgfsetfillopacity{{0.7}}}}{{\pgfsetfillopacity{{1}}}}
-\author{{O. Daniel O'Carroll
-    \textorpdfstring{{\\ \small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}}}}} 
+\author{{
+    O. Daniel O'Carroll \\
+    \small{{\href{{mailto:oocarrol@tcd.ie}}{{oocarrol@tcd.ie}}}}
+}} 
 \date{{\today}}
 \institute[]{{Institute}}
 \begin{{document}}
@@ -265,7 +281,7 @@ s("prebeamer", fmt(
 {}
 \end{{document}}
 ]], {
-i(1), i(2)}
+i(1), i(2), i(3)}
 )),
 s("frame", fmt(
 [[
@@ -310,9 +326,11 @@ s("pre1", fmt(
 \usepackage{{fancyhdr}} % Custom headers and footers
 \usepackage[a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm]{{geometry}}
 \usepackage{{array}}
+\usepackage{{subfiles}}
 
 \newcommand{{\horrule}}[1]{{\rule{{\linewidth}}{{#1}}}} % Create horizontal rule command with 1 argument of height
 
+\graphicspath{{{{./images/}}}}
 
 \pagestyle{{fancyplain}} % Makes all pages in the document conform to the custom headers and footers
 \fancyhead{{}} % No page header - if you want one, create it in the same way as the footers below
@@ -384,6 +402,9 @@ s("prenotes", fmt(
 \usepackage{{lmodern}}
 \usepackage[T1]{{fontenc}}
 \usepackage{{float}}
+\usepackage{{subfiles}}
+
+\graphicspath{{{{./images/}}}}
 
 \usepackage{{sectsty}} % Allows customizing section commands
 \allsectionsfont{{\normalfont\scshape}} % Make all sections centered the default font and small caps
@@ -553,6 +574,10 @@ s("prelet", fmt(
 \usepackage{{array}}
 \usepackage{{sectsty}} % Allows customizing section commands
 \allsectionsfont{{\centering\normalfont\scshape}} % Make all sections centered, the default font and small caps
+
+\usepackage{{subfiles}}
+
+\graphicspath{{{{./images/}}}}
 
 \usepackage{{tocloft}}
 % Change the font for all Table of Contents entries (sections, subsections, etc.)
@@ -784,7 +809,7 @@ i(1), i(2), i(3)
 --Figure
 s("fig", fmt(
 [[
-\begin{{figure}}[ht!]
+\begin{{figure}}[H]
 	\centering
     {}[width=\linewidth]{{{}}}
 	\captionsetup{{font=footnotesize}}
@@ -821,21 +846,6 @@ s("subfigadd", fmt(
 %
 ]],{
 i(1), i(2)
-}
-)),
--- PNG Figure
-s("figpng", fmt(
-[[
-\begin{{figure}}[H]
-	\centering
-    \includegraphics[width=\linewidth]{{{}}}
-	\captionsetup{{font=footnotesize}}
-	\caption{{{}}}
-	\label{{fig{}}}
-\end{{figure}}
-%
-]],{
-i(1), i(2), i(3)
 }
 )),
 --Auto Figure

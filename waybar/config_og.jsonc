@@ -26,9 +26,25 @@
             "custom/keyboard"
         ],
 
+        "hyprland/window": {
+            "format": "{title} ",
+            "separate-outputs": true,
+            "rewrite": {
+                ".*Mozilla Firefox.*": "󰈹  Firefox",
+                ".*Google Chrome.*": "  Chrome",
+                ".*Brave.*": "🦁 Brave",
+                ".*Visual Studio Code.*": "󰨞  VS Code",
+                ".*nvim.*": " NeoVim",
+                ".*Ghostty.*": "  Terminal",
+                ".*~.*": "  Terminal",
+                " ":  "󰇄  Desktop",
+            }
+        },
+
     "group/pill#center": { 
         "orientation": "inherit",
         "modules": [
+            // "hyprland/window",
             "clock",
             "hyprland/workspaces"
         ] 

@@ -1,7 +1,7 @@
 local M = {}
 
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
-vim.lsp.set_log_level "warn" -- change to "debug" for more info
+vim.lsp.log.set_level(vim.log.levels.WARN)
 
 M.on_attach = function(_, bufnr)
     local nmap = function(keys, func, desc)
@@ -10,15 +10,17 @@ M.on_attach = function(_, bufnr)
         end
         vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc, silent = true })
     end
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-    nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
-    nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
+
+    vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
+    nmap("[d", function() vim.diagnostic.jump({ count = -1 }) end, "Go to previous diagnostic message")
+    nmap("]d", function() vim.diagnostic.jump({ count = 1 }) end, "Go to next diagnostic message")
     --vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = 0 })
 
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 
-    --nmap("<leader>r", ":w <CR> :tab term python %<CR>", "Run Python File")
-    nmap("<leader>r", ":w <CR> :3split term:// python %<CR> <A-j>", "Run Python File")
+    -- nmap("<leader>r", ":w <CR> :tab term python %<CR>", "Run Python File")
+    nmap("<leader>r", ":w<CR>:3split term://cd %:p:h && python %:p<CR> <A-j>", "Run Python File")
+    -- nmap("<leader>r", ":w <CR> :3split term:// python %<CR> <A-j>", "Run Python File")
     nmap("<leader>q", ":bufdo if &buftype == 'terminal' | bwipeout! | endif <CR>", "Kill Terminals Python")
     nmap("<A-q>", ":only<CR> :w <CR> :bufdo if &buftype == 'terminal' | bwipeout! | endif <CR>", "Kill Terminals Python")
     nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")

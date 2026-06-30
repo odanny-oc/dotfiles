@@ -67,19 +67,19 @@
     // Individual Modules Definition
 "hyprland/window": {
     "format": "{title} ",
-    "format-empty": "󰇄  Desktop",
     "separate-outputs": true,
     "rewrite": {
-        ".*Mozilla Firefox.*": "󰈹  Firefox",
-        ".*Google Chrome.*": "  Chrome",
+        ".*Mozilla Firefox.*": "󰈹 $0",
+        ".*Google Chrome.*": " Chrome",
         ".*Brave.*": "🦁 Brave",
         ".*Visual Studio Code.*": "󰨞  VS Code",
-        ".*nvim.*": " NeoVim",
-        // ".*Ghostty.*": "  Terminal",
-        "class<com.mitchellh.ghostty> title<(.*)>": "  Terminal",
-        // ".*~.*": "  Terminal",
+        ".*nvim.*": " NeoVim $0",
+        ".*Ghostty.*": "  Terminal",
+        ".*~.*": "  Terminal $0",
+        ".*.pdf.*": "   $0",
         " ":  "󰇄  Desktop",
-    }
+    },
+    "max-length": 50
 },
 
     "hyprland/workspaces": {
@@ -91,6 +91,7 @@
             "1": "",
             "2": "",
             "3": "",
+            "8": "",
             "9": "",
             "10": "",
             "urgent": "",
