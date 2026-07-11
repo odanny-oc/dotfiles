@@ -7,6 +7,9 @@ vim.cmd('syntax enable')
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_quickfix_mode = 0
 
+vim.g.vimtex_complete_bib={
+    simple = 0
+}
 -- vim.g.vimtex_subfile_start_dir = 'top'
 
 -- Alternative viewer configuration:

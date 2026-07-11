@@ -2,6 +2,16 @@ require("oceanman.lsp.mason")
 require("nvim-dap-virtual-text").setup {}
 local def = require "oceanman.lsp.default-lsp"
 
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+  group = vim.api.nvim_create_augroup("DiagnosticRedraw", { clear = true }),
+  callback = function()
+    vim.cmd("redraw")
+    local ok, lualine = pcall(require, "lualine")
+    if ok then
+      lualine.refresh()
+    end
+  end,
+})
 
 vim.lsp.config('lua_ls', {
   autostart = true,

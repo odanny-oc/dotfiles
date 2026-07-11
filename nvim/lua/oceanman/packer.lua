@@ -84,11 +84,7 @@ return require('packer').startup(function(use)
     use { 'nvimtools/none-ls.nvim' }
 
     use {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-        require("nvim-autopairs").setup {}
-    end
+    "windwp/nvim-autopairs"
     }
     -- use { 'moyiz/git-dev.nvim' }
     -- use { 'luk400/vim-jukit' }

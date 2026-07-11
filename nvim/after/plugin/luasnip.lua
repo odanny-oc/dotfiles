@@ -1044,6 +1044,13 @@ s("empheq", fmt(
 i(1), i(2)
 }
 )),
+s("braket", fmt(
+[[
+\bra{{{}}} {} \ket{{{}}}
+]],{
+    i(1), i(2), rep(1)
+}
+))
 })
 
 ls.add_snippets("python", {
