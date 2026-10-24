@@ -224,13 +224,16 @@
     },
 
     "memory": {
-        "format": "{used}GB  ",
-        "tooltip": false
+        "format": "{used:.2f}GB  ",
+        "interval": 1,
+        "tooltip": false,
+        "max-length": 10
     },
 
     "memory#mem2": {
-        "format": "{swapUsed}GB 🗁",
-        "tooltip": false
+        "format": "{swapUsed:.2f}GB 🗁",
+        "tooltip": false,
+        "max-length": 10
     },
 
     "temperature": {

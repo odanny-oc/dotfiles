@@ -23,13 +23,13 @@ end)
 
 --keybinds for insert nodes
 --
-vim.keymap.set({"i", "s"}, "<A-k>", function()
+vim.keymap.set({"i", "s"}, "<A-j>", function()
     if ls.expand_or_jumpable() then
         ls.expand_or_jump()
     end
 end, { silent = true })
 
-vim.keymap.set({"i", "s"}, "<A-j>", function()
+vim.keymap.set({"i", "s"}, "<A-k>", function()
     if ls.jumpable(-1) then
         ls.jump(-1)
     end
@@ -829,23 +829,29 @@ s("subfig", fmt(
 [[
 \begin{{figure}}[H] 
 \begin{{subfigure}}[H]{{{}\linewidth}}
-    \includegraphics[width=\linewidth]{{{}}}
+    {}[width=\linewidth]{{{}}}
 \end{{subfigure}}
 \end{{figure}}
 %
 ]],{
-i(1), i(2)
+i(1), c(2, {
+    t("\\includesvg"),
+    t("\\includegraphics"),
+    }), i(3)
 }
 )),
 -- Subfigure add
 s("subfigadd", fmt(
 [[
 \begin{{subfigure}}[H]{{{}\linewidth}}
-    \includegraphics[width=\linewidth]{{{}}}
+    {}[width=\linewidth]{{{}}}
 \end{{subfigure}}
 %
 ]],{
-i(1), i(2)
+i(1), c(2, {
+    t("\\includesvg"),
+    t("\\includegraphics"),
+    }), i(3)
 }
 )),
 --Auto Figure
@@ -1043,6 +1049,27 @@ s("empheq", fmt(
 %
 ]],{
 i(1), i(2)
+}
+)),
+s("verbe", fmt(
+[[
+\begin{{center}}
+    \begin{{tabular}}{{|c|c|c|}}
+        \hline
+        \textbf{{Pronom}} & \textbf{{Verbe}} & \textbf{{Anglais}}\\
+        \hline
+         je & {} & \textit{{I {}}} \\
+         tu & {} & \textit{{You {}}}\\
+         il/elle/on & {} & \textit{{He/she/one {}s}}\\
+         nous & {} & \textit{{We {}}}\\
+         vous & {} & \textit{{You (pl) {}}}\\
+         ils/elles & {} & \textit{{They {}}}\\
+        \hline
+    \end{{tabular}}
+    \label{{tab{}}}
+\end{{center}}
+]],{
+    i(1), i(2), i(3), rep(2), i(4), rep(2), i(5), rep(2), i(6), rep(2), i(7), rep(2), i(8)
 }
 )),
 })

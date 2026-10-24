@@ -9,8 +9,6 @@ fastfetch
 export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/MultiNest/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/wvkbd/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/danny/libboost_locale_miktex/usr/lib/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/danny/libboost_locale_miktex/icu-76.1-1-x86_64.pkg/usr/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/danny/exoplanet_atmospheres/.venv/cuba/:$LD_LIBRARY_PATH
 export GSK_RENDERER=gl
 
@@ -37,7 +35,7 @@ alias gp='git pull origin main'
 alias gps='git push origin main'
 
 function pdf {
-    zathura $1 & disown
+    sioyek $1 & disown
 }
 
 function cds {

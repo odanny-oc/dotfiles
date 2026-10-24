@@ -18,9 +18,15 @@ M.on_attach = function(_, bufnr)
 
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 
-    -- nmap("<leader>r", ":w <CR> :tab term python %<CR>", "Run Python File")
-    nmap("<leader>r", ":w<CR>:3split term://cd %:p:h && python %:p<CR> <A-j>", "Run Python File")
-    -- nmap("<leader>r", ":w <CR> :3split term:// python %<CR> <A-j>", "Run Python File")
+    -- nmap("<leader>r", ':w<CR>:3split term://cd %:p:h && python %:p<CR> <A-j>', "Run Python File")
+
+    vim.keymap.set("n", "<leader>r", function()
+      vim.cmd("write")
+      local dir = vim.fn.shellescape(vim.fn.expand("%:p:h"))
+      local file = vim.fn.shellescape(vim.fn.expand("%:p"))
+      vim.cmd("3split term://cd " .. dir .. " && python " .. file)
+    end, { desc = "Run Python File" })
+
     nmap("<leader>q", ":bufdo if &buftype == 'terminal' | bwipeout! | endif <CR>", "Kill Terminals Python")
     nmap("<A-q>", ":only<CR> :w <CR> :bufdo if &buftype == 'terminal' | bwipeout! | endif <CR>", "Kill Terminals Python")
     nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")

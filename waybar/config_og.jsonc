@@ -22,7 +22,8 @@
             "group/pill-backlight",
             "group/pill-left",
             "group/pill-laptop",
-            "group/pill-rotate",
+            "group/pill-memory",
+            // "group/pill-rotate",
             "custom/keyboard"
         ],
 
@@ -54,7 +55,6 @@
         ],
         "modules-right": [
             "network",
-            "group/pill-memory",
             "sway/language",
             "battery",
             "group/pill-tray"
